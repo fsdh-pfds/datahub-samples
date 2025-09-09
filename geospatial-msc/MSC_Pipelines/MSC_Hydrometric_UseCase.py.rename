@@ -21,14 +21,14 @@
 # COMMAND ----------
 
 # install the wheels for GDAL and osgeo
-%pip install https://manthey.github.io/large_image_wheels/GDAL-3.5.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=9387d6f4a71a132a7c5a13426a2491e9aded5e0974cadb43b9d579fac92541f8
+# MAGIC %pip install https://manthey.github.io/large_image_wheels/GDAL-3.5.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=9387d6f4a71a132a7c5a13426a2491e9aded5e0974cadb43b9d579fac92541f8
 # install folium library for mapping our results
-%pip install branca
-%pip install jinja2
-%pip install folium
+# MAGIC %pip install branca
+# MAGIC %pip install jinja2
+# MAGIC %pip install folium
 #install oswl and tabulate for WMS data
-%pip install tabulate
-%pip install OWSLib
+# MAGIC %pip install tabulate
+# MAGIC %pip install OWSLib
 
 # COMMAND ----------
 

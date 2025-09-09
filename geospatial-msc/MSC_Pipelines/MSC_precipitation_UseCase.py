@@ -6,8 +6,8 @@
 # COMMAND ----------
 
 # install additional required libraries
-%pip install tabulate
-%pip install OWSLib
+# MAGIC %pip install tabulate
+# MAGIC %pip install OWSLib
 
 # COMMAND ----------
 
