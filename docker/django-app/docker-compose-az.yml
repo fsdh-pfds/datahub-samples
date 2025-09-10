@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   web:
-    image: ghcr.io/ssc-sp/django-app:latest
+    image: ghcr.io/ssc-sp/django-app:latest@sha256:52cb8613ad08c23ec0522cefd3407be7866026644f250d35b5aedeb235265c60
     ports:
       - "8000:8000"
     command: /bin/bash entry-point.sh
@@ -10,7 +10,7 @@ services:
     depends_on:
       - db
   db:
-    image: docker.io/postgres:13
+    image: docker.io/postgres:13@sha256:4a366c013b02a39678776c79fa6d6ae520b81ee3d73a7277a1c27919abfa80f8
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:

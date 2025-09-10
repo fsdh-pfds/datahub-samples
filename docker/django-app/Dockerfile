@@ -1,5 +1,5 @@
 # Pull base image
-FROM python:3.10.2-slim-bullseye
+FROM python:3.10.2-slim-bullseye@sha256:6faf002f0bce2ce81bec4a2253edddf0326dad23fe4e95e90d7790eaee653da5
 
 # Set environment variables
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
