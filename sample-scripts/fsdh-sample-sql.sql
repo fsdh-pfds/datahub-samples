@@ -15,14 +15,14 @@
 
 -- COMMAND ----------
 
-DROP TABLE IF EXISTS default.fsdh_sample;
-
-CREATE TABLE default.fsdh_sample;
-COPY INTO default.fsdh_sample
-FROM 'abfss://datahub@fsdhprojdw1poc.dfs.core.windows.net/fsdh-sample.csv'
-FILEFORMAT = CSV
-FORMAT_OPTIONS ('header' = 'true')
-COPY_OPTIONS ('mergeSchema' = 'true');
+CREATE OR REPLACE TABLE default.fsdh_sample
+USING DELTA AS
+SELECT *
+FROM read_files(
+  'abfss://datahub@fsdhprojdw1poc.dfs.core.windows.net/fsdh-sample.csv',
+  format => 'csv',
+  header => true
+);
 
 SELECT * FROM default.fsdh_sample LIMIT 5;
 
@@ -51,14 +51,14 @@ SELECT * FROM default.fsdh_sample LIMIT 5;
 
 -- COMMAND ----------
 
-DROP TABLE IF EXISTS default.fsdh_sample;
-
-CREATE TABLE default.fsdh_sample;
-COPY INTO default.fsdh_sample
-FROM '/mnt/fsdh/fsdh-sample.csv'
-FILEFORMAT = CSV
-FORMAT_OPTIONS ('header' = 'true')
-COPY_OPTIONS ('mergeSchema' = 'true');
+CREATE OR REPLACE TABLE default.fsdh_sample
+USING DELTA AS
+SELECT *
+FROM read_files(
+  '/mnt/fsdh/fsdh-sample.csv',
+  format => 'csv',
+  header => true
+);
 
 SELECT * FROM default.fsdh_sample LIMIT 5;
 
