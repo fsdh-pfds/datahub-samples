@@ -23,7 +23,6 @@ FROM read_files(
   format => 'csv',
   header => true
 );
-
 SELECT * FROM default.fsdh_sample LIMIT 5;
 
 -- COMMAND ----------
