@@ -1,2 +1,4 @@
 [sqlfluff]
 dialect = databricks
+[layout]
+max_line_length = 180
