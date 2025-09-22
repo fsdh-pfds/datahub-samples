@@ -15,10 +15,10 @@
 
 # COMMAND ----------
 
-abfss = spark.conf.get('abfss_uri')
-dbutils.fs.ls(abfss)
-df = spark.read.option("header","true").csv(abfss + '/fsdh-sample.csv')
-df.show(5)
+abfss = spark.conf.get('abfss_uri') # noqa: F821
+dbutils.fs.ls(abfss) # noqa: F821
+df = spark.read.option("header","true").csv(abfss + '/fsdh-sample.csv') # noqa: F821
+df.show(5) # noqa: F821
 
 # COMMAND ----------
 
@@ -38,7 +38,7 @@ dbutils.fs.mount(
 
 dbutils.fs.ls('/mnt/fsdh')
 df = spark.read.option("header","true").csv('/mnt/fsdh/fsdh-sample.csv')
-df.show(5);
+df.show(5)
 
 # COMMAND ----------
 
@@ -70,8 +70,8 @@ PASSWORD="my_password"
 
 # COMMAND ----------
 
-import psycopg2
-from psycopg2 import sql
+import psycopg2 # noqa: F821
+from psycopg2 import sql # noqa: F821, F401
 
 conn = psycopg2.connect(
     host=HOST,
