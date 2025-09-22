@@ -1,5 +1,5 @@
 -- Databricks notebook source
--- MAGIC %md
+-- MAGIC %md -- noqa: disable=all
 -- MAGIC # FSDH Databricks SQL Sample
 -- MAGIC *Note: This notebook is a work in progress*
 -- MAGIC
