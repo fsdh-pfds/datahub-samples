@@ -1,5 +1,5 @@
 {
-  "name": "Ubuntu",
+  "name": "Repo Build Environment",
   "image": "mcr.microsoft.com/devcontainers/base:jammy",
   "features": {
     "ghcr.io/devcontainers/features/go:1": {
