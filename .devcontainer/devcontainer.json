@@ -1,0 +1,37 @@
+{
+  "name": "Ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-community/npm-features/prettier:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": true,
+      "azureDnsAutoDetection": true,
+      "installDockerBuildx": true,
+      "installDockerComposeSwitch": true,
+      "version": "latest",
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers-extra/features/black:2": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-extra/features/flake8:2": {
+      "version": "latest",
+      "plugins": "flake8-black"
+    },
+    "ghcr.io/devcontainers-extra/features/isort:2": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-extra/features/mypy:2": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-extra/features/ruff:1": {
+      "version": "latest"
+    }
+  },
+  "postCreateCommand": "go install mvdan.cc/sh/v3/cmd/shfmt@latest"
+}
