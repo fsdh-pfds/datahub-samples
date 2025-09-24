@@ -15,9 +15,9 @@
 
 # COMMAND ----------
 
-abfss = spark.conf.get('abfss_uri')
+abfss = spark.conf.get("abfss_uri")
 dbutils.fs.ls(abfss)
-df = spark.read.option("header","true").csv(abfss + '/fsdh-sample.csv')
+df = spark.read.option("header", "true").csv(abfss + "/fsdh-sample.csv")
 df.show(5)
 
 # COMMAND ----------
@@ -29,16 +29,21 @@ df.show(5)
 # COMMAND ----------
 
 if any(mount.mountPoint == "/mnt/fsdh" for mount in dbutils.fs.mounts()):
-        dbutils.fs.unmount("/mnt/fsdh")
+    dbutils.fs.unmount("/mnt/fsdh")
 
 dbutils.fs.mount(
-  source = spark.conf.get('wasbs_uri'),
-  mount_point = "/mnt/fsdh",
-  extra_configs = {'fs.azure.account.key.' + spark.conf.get('az_storage_name') +'.blob.core.windows.net':dbutils.secrets.get(scope = "datahub", key = "storage-key")})
+    source=spark.conf.get("wasbs_uri"),
+    mount_point="/mnt/fsdh",
+    extra_configs={
+        "fs.azure.account.key."
+        + spark.conf.get("az_storage_name")
+        + ".blob.core.windows.net": dbutils.secrets.get(scope="datahub", key="storage-key")
+    },
+)
 
-dbutils.fs.ls('/mnt/fsdh')
-df = spark.read.option("header","true").csv('/mnt/fsdh/fsdh-sample.csv')
-df.show(5);
+dbutils.fs.ls("/mnt/fsdh")
+df = spark.read.option("header", "true").csv("/mnt/fsdh/fsdh-sample.csv")
+df.show(5)
 
 # COMMAND ----------
 
@@ -58,10 +63,10 @@ df.show(5);
 
 # COMMAND ----------
 
-HOST="my_host"
-DATABASE="my_database"
-USER="my_user"
-PASSWORD="my_password"
+HOST = "my_host"
+DATABASE = "my_database"
+USER = "my_user"
+PASSWORD = "my_password"
 
 # COMMAND ----------
 
@@ -73,12 +78,7 @@ PASSWORD="my_password"
 import psycopg2
 from psycopg2 import sql
 
-conn = psycopg2.connect(
-    host=HOST,
-    database=DATABASE,
-    user=USER,
-    password=PASSWORD
-)
+conn = psycopg2.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD)
 cursor = conn.cursor()
 
 # COMMAND ----------
@@ -105,15 +105,15 @@ cursor.execute(create_table_query)
 
 # Inserting data
 dummy_data = [
-    ('Mercury', 'Planet', 2439.7, 3.3011e23, 57909227),
-    ('Venus', 'Planet', 6051.8, 4.8675e24, 108209475),
-    ('Earth', 'Planet', 6371.0, 5.97237e24, 149598262),
-    ('Mars', 'Planet', 3389.5, 6.4171e23, 227943824),
-    ('Jupiter', 'Planet', 69911, 1.8982e27, 778340821),
-    ('Europa', 'Moon', 1560.8, 4.7998e22, 670900000), 
-    ('Ganymede', 'Moon', 2634.1, 1.4819e23, 670900000),
-    ('Ceres', 'Dwarf Planet', 473, 9.3835e20, 413700000),
-    ('Pluto', 'Dwarf Planet', 1188.3, 1.303e22, 5906440628)
+    ("Mercury", "Planet", 2439.7, 3.3011e23, 57909227),
+    ("Venus", "Planet", 6051.8, 4.8675e24, 108209475),
+    ("Earth", "Planet", 6371.0, 5.97237e24, 149598262),
+    ("Mars", "Planet", 3389.5, 6.4171e23, 227943824),
+    ("Jupiter", "Planet", 69911, 1.8982e27, 778340821),
+    ("Europa", "Moon", 1560.8, 4.7998e22, 670900000),
+    ("Ganymede", "Moon", 2634.1, 1.4819e23, 670900000),
+    ("Ceres", "Dwarf Planet", 473, 9.3835e20, 413700000),
+    ("Pluto", "Dwarf Planet", 1188.3, 1.303e22, 5906440628),
 ]
 
 insert_query = """
@@ -136,6 +136,7 @@ for row in rows:
 
 # Displaying data
 import pandas as pd
+
 df = pd.read_sql_query(select_query, conn)
 display(df)
 
@@ -156,10 +157,10 @@ conn.close()
 
 # COMMAND ----------
 
-HOST="my_host"
-DATABASE="my_database"
-USER="my_user"
-PASSWORD="my_password"
+HOST = "my_host"
+DATABASE = "my_database"
+USER = "my_user"
+PASSWORD = "my_password"
 
 # COMMAND ----------
 
@@ -171,8 +172,8 @@ PASSWORD="my_password"
 url = f"jdbc:postgresql://{HOST}:{5432}/{DATABASE}"
 driver = "org.postgresql.Driver"
 
-remote_table = (spark.read
-    .format("jdbc")
+remote_table = (
+    spark.read.format("jdbc")
     .option("driver", driver)
     .option("url", url)
     .option("dbtable", "celestial_bodies")
