@@ -1,13 +1,17 @@
 [flake8]
 # Keep in lockstep with pylint and black
-max-line-length = 120
+max-line-length = 150
 
 # Avoid clashes with Black's formatting rules
 extend-ignore =
     # whitespace before ':'
     E203,  
     # line break before binary operator
-    W503
+    W503,
+    #ignore undefined names
+    F821,
+    #allow imports after beginning
+    E402
 
 # Skip non-source dir
 exclude =

@@ -1,5 +1,5 @@
 [tool.black]
-line-length = 120
+line-length = 150
 # Optional, if you want to skip common build/venv dirs
 extend-exclude = '''
 /(
@@ -13,7 +13,7 @@ extend-exclude = '''
 
 [tool.pyink]
 # Match Flake8 and Pylint
-line-length = 120
+line-length = 150
 
 # Pyink-specific options
 pyink-indentation = 4               # standard Python indentation
