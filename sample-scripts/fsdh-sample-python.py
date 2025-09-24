@@ -1,14 +1,21 @@
 # Databricks notebook source
-# flake8: noqa
-# pylint: skip-file
-# isort: skip_file
-# mypy: disable-error-code=name-defined
-# ruff: noqa
 # MAGIC %md
 # MAGIC # FSDH Databricks Python Sample
 # MAGIC *Note: This notebook is a work in progress*
 # MAGIC
 # MAGIC This notebook will use Python, but Databricks supports programming in SQL, Scala, and R as well.
+
+# COMMAND ----------
+
+# Ignores for python linters
+
+# -----------------------------------------------
+# flake8: noqa
+# pylint: skip-file
+# isort: skip_file
+# mypy: disable-error-code=name-defined
+# ruff: noqa
+# -----------------------------------------------
 
 # COMMAND ----------
 
