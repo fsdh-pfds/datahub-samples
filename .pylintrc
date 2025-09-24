@@ -1,6 +1,5 @@
 [MASTER]
 ignore = .git,__pycache__,build,dist,.venv,venv,.mypy_cache
-additional-builtins=spark,dbutils,display
 
 [MESSAGES CONTROL]
 # Trim the noisiest overlaps; keep C0301 enabled to enforce 120 cols
@@ -11,12 +10,9 @@ disable =
     R0903,  # too-few-public-methods
     R0801,  # duplicate-code
     E0401   # import-error (handled by mypy)
-    C0103,  # invalid-name
-    C0413,  # wrong-import-position
-    W0611,  # unused-import
 
 [FORMAT]
-max-line-length = 150
+max-line-length = 120
 
 [DESIGN]
 # Reasonable thresholds to reduce false positives without being lax
