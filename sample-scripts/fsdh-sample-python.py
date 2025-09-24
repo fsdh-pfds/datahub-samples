@@ -1,4 +1,10 @@
+
 # Databricks notebook source
+# flake8: noqa
+# pylint: skip-file
+# isort: skip_file
+# mypy: disable-error-code=all
+# ruff: noqa
 # MAGIC %md
 # MAGIC # FSDH Databricks Python Sample
 # MAGIC *Note: This notebook is a work in progress*
